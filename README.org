@@ -1,0 +1,2 @@
+* awesomewm
+Some [awesomewm](https://awesomewm.org/) things I'm trying out
