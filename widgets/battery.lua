@@ -3,6 +3,7 @@
 --------------------------------
 
 -- Awesome Libs
+local basic_notify = require "utils".basic_notify
 local awful = require "awful"
 local colors = require "ui.colors"
 local dpi = require("beautiful").xresources.apply_dpi

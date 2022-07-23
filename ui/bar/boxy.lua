@@ -81,7 +81,7 @@ return function(s)
       --widgets.date,
     }, "center"),
     group_widgets(s, {
-      widgets.network,
+      widgets.wifi,
       widgets.battery,
       widgets.audio,
       widgets.clock,

@@ -1,2 +1,0 @@
-* awesomewm
-Some [[https://awesomewm.org/][awesomewm]] things I'm trying out

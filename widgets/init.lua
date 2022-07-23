@@ -9,5 +9,6 @@ return {
   power = require "widgets.power",
   systray = require "widgets.systray",
   taglist = require "widgets.taglist",
+  wifi = require "widgets.wifi",
   --tasklist = require "widgets.tasklist",
 }
