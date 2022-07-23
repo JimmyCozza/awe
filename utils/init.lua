@@ -1,5 +1,5 @@
 -- This is really just a port of https://github.com/arcolinux/archlinux-logout, which I love
-local awful = require "awful"
+local awful = require "awful" local naughty = require "naughty"
 local dpi = require("beautiful").xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
@@ -176,6 +176,14 @@ M.logout = function(s)
     powermenu_keygrabber:stop()
     powermenu_container.visible = false
   end)
+end
+
+M.basic_notify = function(message, title)
+  naughty.notify {
+    text = message,
+    title = title,
+    timeout = 3,
+  }
 end
 
 return M
