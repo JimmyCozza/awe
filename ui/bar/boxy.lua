@@ -46,7 +46,7 @@ end
 
 return function(s)
   local bar = awful.popup {
-    bg = global_colors.bg,
+    bg = beautiful.bg_normal,
     ontop = false,
     placement = function(c)
       awful.placement.top(c, { margins = beautiful.useless_gap * 2 })
@@ -85,7 +85,6 @@ return function(s)
       widgets.battery,
       widgets.audio,
       widgets.clock,
-      widgets.power,
     }, "right"),
     forced_height = 45,
     forced_width = s.geometry.width - beautiful.useless_gap * 4,

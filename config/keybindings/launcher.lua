@@ -1,6 +1,8 @@
 local awful = require "awful"
 local gears = require "gears"
+local rubato = require "modules.rubato"
 local hotkeys_popup = require "awful.hotkeys_popup"
+local basic_notify = require "utils".basic_notify
 
 local app_launcher = require "modules.bling".widget.app_launcher{
   terminal = "alacritty",
@@ -28,13 +30,13 @@ local app_launcher = require "modules.bling".widget.app_launcher{
     --show_on_focused_screen = "",
     --screen = "",
     --placement = awful.placement.left,
-    --rubato = "",
+    --rubato = {},
     --shrink_width = true,
     --shrink_height = true,
     --background = "",
-    shape = function(cr, width, height)
-      gears.shape.rectangle(cr, width, height)
-    end,
+    --shape = function(cr, width, height)
+      --gears.shape.rectangle(cr, width, height)
+    --end,
 
     --prompt_height = "",
     --prompt_margins = "",
@@ -46,7 +48,7 @@ local app_launcher = require "modules.bling".widget.app_launcher{
     --prompt_text_halign = "",
     --prompt_text_valign = "",
     --prompt_icon_text_spacing = "",
-    prompt_show_icon = false,
+    --prompt_show_icon = false,
     --prompt_icon_font = "",
     --prompt_icon_color = "",
     --prompt_icon = "",

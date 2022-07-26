@@ -77,23 +77,23 @@ theme.layout_tile = gears.color.recolor_image(icons .. "/layout/tile.svg", color
 
 -- Wibar widget colors
 -- TODO: Set these colors to fit the colorscheme
-theme.wibar_audio_color = color.color1
-theme.wibar_audio_hover_color = color.color3
-theme.wibar_battery_color = color.color1
-theme.wibar_battery_hover_color = color.color3
+theme.wibar_audio_color = color.warning
+theme.wibar_audio_hover_color = color.border_bell
+theme.wibar_battery_color = color.success
+theme.wibar_battery_hover_color = color.cursor
 theme.wibar_bluetooth_color = color.color1
 theme.wibar_bluetooth_hover_color = color.color3
-theme.wibar_clock_color = color.color1
-theme.wibar_clock_hover_color = color.color3
+theme.wibar_clock_color = color.mark_3
+theme.wibar_clock_hover_color = color.hover
 theme.wibar_date_color = color.color1
 theme.wibar_date_hover_color = color.color3
-theme.wibar_layout_list_color = color.color2
-theme.wibar_layout_list_hover_color = color.color17
+theme.wibar_layout_list_color = color.mark_2
+theme.wibar_layout_list_hover_color = color.mark_1
 theme.wibar_power_color = color.color1
 theme.wibar_power_hover_color = color.color3
 theme.wibar_systray_color = color.color1
 theme.wibar_systray_hover_color = color.color3
-theme.wibar_wifi_color = color.color1
-theme.wibar_wifi_hover_color = color.color3
+theme.wibar_wifi_color = color.mark_2
+theme.wibar_wifi_hover_color = color.mark_1
 
 return theme

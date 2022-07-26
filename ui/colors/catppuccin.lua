@@ -112,5 +112,7 @@ return {
   mark_2_text = catppuccin[sub_theme].Crust,
   mark_3 = catppuccin[sub_theme].Sapphire,
   mark_3_text = catppuccin[sub_theme].Crust,
+  hover = catppuccin[sub_theme].Sky,
+  hover2 = catppuccin[sub_theme].Teal,
 }
 
