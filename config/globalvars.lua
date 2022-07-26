@@ -41,6 +41,7 @@ User_vars = {
   -- TODO: Add nord & others
   -- gruvbox, catppuccin
   colorscheme = "catppuccin",
+  sub_theme = "macchiato",
   theme = "boxy",
   bar_ui = "boxy",
   -- Autotiling layouts

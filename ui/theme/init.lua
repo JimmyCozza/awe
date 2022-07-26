@@ -1,5 +1,4 @@
 local awful = require "awful"
-local beautiful = require "beautiful"
 local icons = awful.util.getdir "config" .. "icons/"
 
 local theme = require("ui.theme." .. User_vars.theme)

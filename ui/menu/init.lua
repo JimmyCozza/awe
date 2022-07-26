@@ -1,6 +1,7 @@
 local awful = require "awful"
 local hotkeys_popup = require "awful.hotkeys_popup"
 local beautiful = require "beautiful"
+--local gears = require "gears"
 
 local awesomemenu = {
   {

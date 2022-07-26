@@ -5,8 +5,8 @@ awful.spawn "xrdb ~/dotfiles/.xfiles/gruvbox"
 require "config.globalvars"
 require "config.rules"
 --require "signals"
-require "config.keybindings"
 require "ui"
+require "config.keybindings"
 --require "noscope"
 
 -- Shell applications
