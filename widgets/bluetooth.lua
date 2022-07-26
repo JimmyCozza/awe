@@ -1,6 +1,6 @@
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 local icondir = awful.util.getdir "config" .. "icons/bluetooth/"
@@ -13,7 +13,7 @@ return function()
           {
             {
               id = "icon",
-              image = gears.color.recolor_image(icondir .. "bluetooth-on.svg", colors.bg),
+              image = gears.color.recolor_image(icondir .. "bluetooth-on.svg", beautiful.bg_normal),
               widget = wibox.widget.imagebox,
               resize = false,
             },
@@ -32,8 +32,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = colors.green,
-    fg = colors.grey1,
+    bg = beautiful.wibar_bluetooth_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height)
     end,

@@ -1,12 +1,6 @@
---------------------------------
--- This is the battery widget --
---------------------------------
-
--- Awesome Libs
-local basic_notify = require "utils".basic_notify
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local naughty = require "naughty"
 local watch = awful.widget.watch
@@ -52,8 +46,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = colors.yellow,
-    fg = colors.bg,
+    bg = beautiful.wibar_battery_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height, 5)
     end,
@@ -95,7 +89,7 @@ return function()
 
   local battery_warning = function()
     naughty.notify {
-      icon = gears.color.recolor_image(icondir .. "battery-alert.svg", color.white2),
+      icon = gears.color.recolor_image(icondir .. "battery-alert.svg", beautiful.fg_urgent),
       app_name = "System notification",
       title = "Battery is low",
       message = "Battery is almost battery_labelempty",
@@ -169,7 +163,7 @@ return function()
     )
   end
 
-  Hover_signal(battery_widget, colors.soft_orange)
+  Hover_signal(battery_widget, beautiful.wibar_battery_hover_color)
 
   battery_widget:connect_signal("button::press", function()
     awful.spawn "xfce4-power-manager-settings"

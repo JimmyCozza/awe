@@ -1,10 +1,5 @@
---------------------------------
--- This is the power widget --
---------------------------------
-
--- Awesome Libs
-local dpi = require("beautiful").xresources.apply_dpi
-local colors = require "ui.colors"
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -26,10 +21,10 @@ return function()
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height)
     end,
-    bg = colors.grey2,
+    bg = beautiful.wibar_systray_color,
   }
   -- Signals
-  Hover_signal(systray.container, colors.grey1)
+  Hover_signal(systray.container, beautiful.wibar_systray_hover_color)
 
   systray.container.st.widget:set_base_size(dpi(20))
 

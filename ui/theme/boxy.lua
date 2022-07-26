@@ -75,4 +75,25 @@ theme.hotkeys_description_font = User_vars.font.bold
 theme.layout_floating = gears.color.recolor_image(icons .. "/layout/floating.svg", color.bg)
 theme.layout_tile = gears.color.recolor_image(icons .. "/layout/tile.svg", color.bg)
 
+-- Wibar widget colors
+-- TODO: Set these colors to fit the colorscheme
+theme.wibar_audio_color = color.color1
+theme.wibar_audio_hover_color = color.color3
+theme.wibar_battery_color = color.color1
+theme.wibar_battery_hover_color = color.color3
+theme.wibar_bluetooth_color = color.color1
+theme.wibar_bluetooth_hover_color = color.color3
+theme.wibar_clock_color = color.color1
+theme.wibar_clock_hover_color = color.color3
+theme.wibar_date_color = color.color1
+theme.wibar_date_hover_color = color.color3
+theme.wibar_layout_list_color = color.color2
+theme.wibar_layout_list_hover_color = color.color17
+theme.wibar_power_color = color.color1
+theme.wibar_power_hover_color = color.color3
+theme.wibar_systray_color = color.color1
+theme.wibar_systray_hover_color = color.color3
+theme.wibar_wifi_color = color.color1
+theme.wibar_wifi_hover_color = color.color3
+
 return theme

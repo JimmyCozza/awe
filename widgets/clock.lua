@@ -1,11 +1,6 @@
-------------------------------
--- This is the clock widget --
-------------------------------
-
--- Awesome Libs
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -22,7 +17,7 @@ return function()
           {
             {
               id = "icon",
-              image = gears.color.recolor_image(icondir .. "clock.svg", colors.bg),
+              image = gears.color.recolor_image(icondir .. "clock.svg", beautiful.bg_normal),
               widget = wibox.widget.imagebox,
               resize = false,
             },
@@ -48,8 +43,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = colors.orange,
-    fg = colors.bg,
+    bg = beautiful.wibar_clock_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height)
     end,
@@ -60,9 +55,10 @@ return function()
     clock_widget.container.clock_layout.label:set_text(os.date "%I:%M")
   end
 
-  -- Updates the clock every 5 seconds, worst case you are 5 seconds behind
-  -- ¯\_(ツ)_/¯
-  local clock_update = gears.timer {
+-- TODO: Move timers to the signals dir.
+-- Emit signals and connect to them in widgets
+-- instead of calling a function that modifies the widgets directly by id
+gears.timer {
     timeout = 5,
     autostart = true,
     call_now = true,
@@ -71,7 +67,7 @@ return function()
     end,
   }
 
-  Hover_signal(clock_widget, colors.soft_orange)
+  Hover_signal(clock_widget, beautiful.wibar_clock_hover_color)
 
   return clock_widget
 end

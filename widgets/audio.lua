@@ -1,11 +1,6 @@
-------------------------------
--- This is the audio widget --
-------------------------------
-
--- Awesome Libs
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -47,8 +42,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = colors.orange,
-    fg = colors.bg,
+    bg = beautiful.wibar_audio_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height, 5)
     end,
@@ -75,7 +70,7 @@ return function()
       end
       audio_widget.container.audio_layout.label:set_text(volume .. "%")
       audio_widget.container.audio_layout.icon_margin.icon_layout.icon:set_image(
-        gears.color.recolor_image(icon .. ".svg", colors.bg)
+        gears.color.recolor_image(icon .. ".svg", beautiful.bg_normal)
       )
     end)
   end
@@ -86,7 +81,7 @@ return function()
         audio_widget.container.audio_layout.label.visible = false
         audio_widget.container:set_right(0)
         audio_widget.container.audio_layout.icon_margin.icon_layout.icon:set_image(
-          gears.color.recolor_image(icondir .. "volume-mute" .. ".svg", colors.bg)
+          gears.color.recolor_image(icondir .. "volume-mute" .. ".svg", beautiful.bg_normal)
         )
       else
         audio_widget.container:set_right(10)
@@ -96,7 +91,7 @@ return function()
   end
 
   -- Signals
-  Hover_signal(audio_widget, colors.soft_yellow)
+  Hover_signal(audio_widget, beautiful.wibar_audio_hover_color)
 
   audio_widget:connect_signal("button::press", function()
     awesome.emit_signal "widget::volume"
@@ -105,7 +100,7 @@ return function()
     awesome.emit_signal "widget::volume_osd:rerun"
   end)
 
-  awesome.connect_signal("widget::volume", function(c)
+  awesome.connect_signal("widget::volume", function()
     check_muted()
   end)
 

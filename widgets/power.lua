@@ -1,11 +1,6 @@
---------------------------------
--- This is the power widget --
---------------------------------
-
--- Awesome Libs
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -21,7 +16,7 @@ return function()
           {
             {
               id = "icon",
-              image = gears.color.recolor_image(icondir .. "power.svg", colors.bg),
+              image = gears.color.recolor_image(icondir .. "power.svg", beautiful.bg_normal),
               widget = wibox.widget.imagebox,
               resize = false,
             },
@@ -40,8 +35,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = colors.green,
-    fg = colors.grey1,
+    bg = beautiful.wibar_power_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height)
     end,
@@ -49,7 +44,7 @@ return function()
   }
 
   -- Signals
-  Hover_signal(power_widget, colors.soft_green)
+  Hover_signal(power_widget, beautiful.wibar_power_hover_color)
 
   power_widget:connect_signal("button::release", function()
     awesome.emit_signal "module::powermenu:show"

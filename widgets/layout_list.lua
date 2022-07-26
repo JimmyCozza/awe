@@ -4,8 +4,8 @@
 
 -- Awesome Libs
 local awful = require "awful"
-local colors = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -25,7 +25,7 @@ return function()
       forced_width = dpi(40),
       widget = wibox.container.margin,
     },
-    bg = colors.green,
+    bg = beautiful.wibar_layout_list_color,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height, 5)
     end,
@@ -33,7 +33,7 @@ return function()
   }
 
   -- Signals
-  Hover_signal(layout, colors.soft_green)
+  Hover_signal(layout, beautiful.wibar_layout_list_hover_color)
 
   layout:connect_signal("button::press", function()
     awful.layout.inc(1)

@@ -1,11 +1,6 @@
------------------------------
--- This is the date widget --
------------------------------
-
--- Awesome Libs
 local awful = require "awful"
-local color = require "ui.colors"
-local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
+local dpi = beautiful.xresources.apply_dpi
 local gears = require "gears"
 local wibox = require "wibox"
 require "signals"
@@ -22,7 +17,7 @@ return function()
           {
             {
               id = "icon",
-              image = gears.color.recolor_image(icondir .. "calendar.svg", color.bg),
+              image = gears.color.recolor_image(icondir .. "calendar.svg", beautiful.bg_normal),
               widget = wibox.widget.imagebox,
               resize = false,
             },
@@ -48,8 +43,8 @@ return function()
       right = dpi(8),
       widget = wibox.container.margin,
     },
-    bg = color.red,
-    fg = color.bg,
+    bg = beautiful.wibar_date_color,
+    fg = beautiful.bg_normal,
     shape = function(cr, width, height)
       gears.shape.rectangle(cr, width, height, 5)
     end,
@@ -60,8 +55,7 @@ return function()
     date_widget.container.date_layout.label:set_text(os.date "%a, %b %d")
   end
 
-  -- Updates the date every minute, dont blame me if you miss silvester
-  local date_updater = gears.timer {
+  gears.timer {
     timeout = 60,
     autostart = true,
     call_now = true,
@@ -71,7 +65,7 @@ return function()
   }
 
   -- Signals
-  Hover_signal(date_widget, color.soft_yellow)
+  Hover_signal(date_widget, beautiful.wibar_date_hover_color)
 
   date_widget:connect_signal("mouse::enter", function()
     awesome.emit_signal("widget::calendar_osd:stop", true)
