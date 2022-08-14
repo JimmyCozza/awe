@@ -6,7 +6,7 @@ dpi = beautiful.xresources.apply_dpi
 local terminal = "wezterm"
 local editor = "emacsclient -c"
 local editor_cmd = editor
-local browser = "google-chrome-stable"
+local browser = "firefox"
 local filemanager = "thunar"
 local screenshot = "flameshot gui"
 local discord = "discord"
@@ -40,7 +40,7 @@ User_vars = {
   },
   -- TODO: Add nord & others
   -- gruvbox, catppuccin
-  colorscheme = "catppuccin",
+  colorscheme = "gruvbox",
   sub_theme = "macchiato",
   theme = "boxy",
   bar_ui = "boxy",
