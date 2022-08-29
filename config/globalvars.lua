@@ -56,8 +56,8 @@ User_vars = {
     ethernet = "eno1",
   },
   font = {
-    regular = "JetBrains Mono Nerd Font, 14",
-    bold = "JetBrains Mono Nerd Font, bold 14",
-    extrabold = "JetBrains Mono Nerd Font, ExtraBold 14",
+    regular = "JetBrainsMono Nerd Font, 14",
+    bold = "JetBrainsMono Nerd Font, bold 14",
+    extrabold = "JetBrainsMono Nerd Font, ExtraBold 14",
   },
 }

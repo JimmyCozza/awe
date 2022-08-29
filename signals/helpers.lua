@@ -41,7 +41,7 @@ M.logout = function(s)
     align = "center",
     valign = "center",
     text = " ",
-    font = "JetBrains Mono Bold 30",
+    font = "JetBrainsMono Bold 30",
     widget = wibox.widget.textbox,
   }
 
@@ -91,7 +91,7 @@ M.logout = function(s)
             {
               {
                 text = name,
-                font = "JetBrains Mono Bold 30",
+                font = "JetBrainsMono Bold 30",
                 widget = wibox.widget.textbox,
               },
               margins = dpi(0),

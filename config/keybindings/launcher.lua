@@ -1,7 +1,7 @@
 local awful = require "awful"
 
 local app_launcher = require "modules.bling".widget.app_launcher{
-  terminal = "alacritty",
+  terminal = "wezterm",
   favorites = { "wezterm", "chrome" },
     search_commands = true,
     skip_names = {"Discord"},
@@ -28,7 +28,7 @@ M.spawn_notes = function()
   awful.spawn.with_shell(User_vars.apps.notes)
 end
 M.spawn_dropdown_term = function()
-  awful.spawn.with_shell "tdrop -ma -w 63% -h 60% -x 2% alacritty"
+  awful.spawn.with_shell "tdrop -ma -w 63% -h 60% -x 2% wezterm"
 end
 M.bling_launcher = function()
   app_launcher:toggle()

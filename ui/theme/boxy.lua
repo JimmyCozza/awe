@@ -39,7 +39,7 @@ end
 
 theme.taglist_fg_focus = color.warning
 theme.taglist_bg_focus = color.bg
-theme.taglist_font = "JetBrains Mono Nerd Font, 30"
+theme.taglist_font = "JetBrainsMono Nerd Font, 30"
 
 theme.tooltip_border_color = color.border_active
 theme.tooltip_bg = color.pane_2
