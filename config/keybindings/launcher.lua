@@ -28,7 +28,7 @@ M.spawn_notes = function()
   awful.spawn.with_shell(User_vars.apps.notes)
 end
 M.spawn_dropdown_term = function()
-  awful.spawn.with_shell "tdrop -ma -w 63% -h 60% -x 2% wezterm"
+  awful.spawn.with_shell "tdrop -ma -w 58% -h 60% -x 1% wezterm"
 end
 M.bling_launcher = function()
   app_launcher:toggle()
