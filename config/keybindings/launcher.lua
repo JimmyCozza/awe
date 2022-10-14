@@ -1,10 +1,10 @@
 local awful = require "awful"
 
-local app_launcher = require "modules.bling".widget.app_launcher{
+local app_launcher = require("modules.bling").widget.app_launcher {
   terminal = "wezterm",
   favorites = { "wezterm", "chrome" },
-    search_commands = true,
-    skip_names = {"Discord"},
+  search_commands = true,
+  skip_names = { "Discord" },
 }
 
 local M = {}

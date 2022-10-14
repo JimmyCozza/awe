@@ -1,6 +1,8 @@
 -- This is really just a port of https://github.com/arcolinux/archlinux-logout, which I love
-local awful = require "awful" local naughty = require "naughty"
+local awful = require "awful"
+local naughty = require "naughty"
 local dpi = require("beautiful").xresources.apply_dpi
+local beautiful = require "beautiful"
 local gears = require "gears"
 local wibox = require "wibox"
 local icons = awful.util.getdir "config" .. "icons/logout/"
@@ -183,6 +185,21 @@ M.basic_notify = function(message, title)
     text = message,
     title = title,
     timeout = 3,
+  }
+end
+
+-- Awesome notification with icon on the left
+M.fancy_notify = function(title, message) end
+
+-- Elenapan helpers
+M.color = function(text, color)
+  return "<span foreground='" .. color .. "'>" .. text .. "</span>"
+end
+
+M.vertical_pad = function(height)
+  return wibox.widget {
+    forced_height = height,
+    layout = wibox.layout.fixed.vertical,
   }
 end
 

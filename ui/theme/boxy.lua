@@ -49,17 +49,17 @@ theme.tooltip_shape = function(cr, width, height)
   gears.shape.rectangle(cr, width, height)
 end
 
-theme.notification_bg = color.pane_2
-theme.notification_fg = color.fg
-theme.notification_border_width = dpi(4)
-theme.notification_border_color = color.border_active
-theme.notification_shape = function(cr, width, height)
-  gears.shape.rectangle(cr, width, height)
-end
-theme.notification_margin = dpi(10)
-theme.notification_max_width = dpi(400)
-theme.notification_max_height = dpi(1000)
-theme.notification_icon_size = dpi(40)
+--theme.notification_bg = color.pane_2
+--theme.notification_fg = color.fg
+--theme.notification_border_width = dpi(4)
+--theme.notification_border_color = color.border_active
+--theme.notification_shape = function(cr, width, height)
+--gears.shape.rectangle(cr, width, height)
+--end
+--theme.notification_margin = dpi(10)
+--theme.notification_max_width = dpi(400)
+--theme.notification_max_height = dpi(1000)
+--theme.notification_icon_size = dpi(40)
 
 theme.bg_systray = color.bg
 theme.systray_icon_spacing = dpi(10)

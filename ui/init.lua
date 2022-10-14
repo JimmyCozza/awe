@@ -1,6 +1,7 @@
 local awful = require "awful"
 local beautiful = require "beautiful"
 local theme = require "ui.theme"
+require "ui.notifications"
 beautiful.init(theme)
 
 local bar = require("ui.bar." .. User_vars.bar_ui)

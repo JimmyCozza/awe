@@ -82,7 +82,7 @@ return function()
     timeout = 15,
     call_now = true,
     autostart = true,
-    callback = update_wifi
+    callback = update_wifi,
   }
 
   Hover_signal(wifi, beautiful.wibar_wifi_hover_color)

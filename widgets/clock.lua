@@ -55,10 +55,10 @@ return function()
     clock_widget.container.clock_layout.label:set_text(os.date "%I:%M")
   end
 
--- TODO: Move timers to the signals dir.
--- Emit signals and connect to them in widgets
--- instead of calling a function that modifies the widgets directly by id
-gears.timer {
+  -- TODO: Move timers to the signals dir.
+  -- Emit signals and connect to them in widgets
+  -- instead of calling a function that modifies the widgets directly by id
+  gears.timer {
     timeout = 5,
     autostart = true,
     call_now = true,
