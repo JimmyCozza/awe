@@ -1,4 +1,6 @@
 local awful = require "awful"
+local utils = require "utils"
+local noscope = require "noscope"
 
 local app_launcher = require("modules.bling").widget.app_launcher {
   terminal = "wezterm",
@@ -35,6 +37,9 @@ M.bling_launcher = function()
 end
 M.spawn_logout = function()
   awesome.emit_signal "module::powermenu:show"
+end
+M.noscope = function()
+  utils.basic_notify("TEST: ", "this is a little longer message")
 end
 
 return M
