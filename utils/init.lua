@@ -1,4 +1,3 @@
--- This is really just a port of https://github.com/arcolinux/archlinux-logout, which I love
 local awful = require "awful"
 local naughty = require "naughty"
 local dpi = require("beautiful").xresources.apply_dpi
@@ -9,6 +8,7 @@ local icons = awful.util.getdir "config" .. "icons/logout/"
 
 local M = {}
 
+-- This is really just a port of https://github.com/arcolinux/archlinux-logout, which I love
 -- TODO: Add signal to use ${command}_blur.svg image to widget on mouse enter
 M.logout = function(s)
   local set_prompt = function(key, command, callback)
@@ -201,6 +201,11 @@ M.vertical_pad = function(height)
     forced_height = height,
     layout = wibox.layout.fixed.vertical,
   }
+end
+
+M.config_switcher = function(config)
+  awful.spawn.with_shell("rm ~/.config/awesome && ln -s ~/unix_stuff/awesome_configs/" .. config .. " ~/.config/awesome")
+  awesome.restart()
 end
 
 return M

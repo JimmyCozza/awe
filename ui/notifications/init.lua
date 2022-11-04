@@ -1,57 +1,78 @@
 local naughty = require "naughty"
 local awful = require "awful"
 local noscope = require "noscope"
+local beautiful = require "beautiful"
 local gears = require "gears"
 local wibox = require "wibox"
 
 naughty.connect_signal("request::display", function(n)
-awful.spawn.easy_async_with_shell("echo " .. " - " .. n.app_name .. " - " .. n.urgency .. " - " .. n.title .. " - " .. n.text .. " >> ~/awe/test.txt")
-  naughty.layout.box {
-    notification = n,
-    ontop = true,
-    position = "top_right",
-    border_width = 3,
-    border_color = "#458588",
-    shape = gears.shape.rectangle,
-    widget_template = {
-      widget = wibox.container.constraint,
-      width = dpi(500),
-      strategy = "max",
-      {
-        margins = dpi(12),
-        widget = wibox.container.margin,
-        {
-          layout = wibox.layout.fixed.vertical,
-          spacing = dpi(10),
-          naughty.list.actions,
-          {
-            layout = wibox.layout.fixed.horizontal,
-            fill_space = true,
-            spacing = dpi(16),
-            {
-              widget = wibox.container.constraint,
-              width = dpi(48),
-              height = dpi(48),
-              --border_color = "#fb4934",
-              strategy = "max",
-              naughty.widget.icon,
-            },
-            {
-              layout = wibox.layout.fixed.vertical,
-              spacing = dpi(8),
-              --border_color = "#fb4934",
-              naughty.widget.title,
-              naughty.widget.message {
-                spacing = dpi(8),
-                layout = wibox.layout.fixed.horizontal,
-                naughty.widget.image,
-                naughty.widget.image,
-                naughty.widget.image,
-              },
-            },
-          },
-        },
-      },
-    },
-  }
+  gears.debug.dump(n)
+  awful.spawn.easy_async_with_shell(
+    "echo " .. " - " .. n.app_name .. " - " .. n.urgency .. " - " .. n.title .. " - " .. n.text .. " >> ~/awe/test.txt"
+  )
+
+  --local note = awful.popup {
+    --widget = {
+      --{
+        --{
+          --widget = wibox.container.margin,
+          --margins = dpi(12),
+          --{
+            --widget = wibox.widget.imagebox,
+            --image = n.icon,
+          --},
+        --},
+        --{
+          --{
+            --{
+              --widget = wibox.widget.textbox,
+              --text = n.title,
+            --},
+            --{
+              --widget = wibox.widget.textbox,
+              --text = n.text,
+            --},
+            --{
+              --{
+                --widget = wibox.widget.textbox,
+                --text = "button",
+              --},
+              --{
+                --widget = wibox.widget.textbox,
+                --text = "button",
+              --},
+              --{
+                --widget = wibox.widget.textbox,
+                --text = "button",
+              --},
+              --min_width = dpi(300),
+              --layout = wibox.layout.flex.horizontal,
+            --},
+            --layout = wibox.layout.fixed.vertical,
+          --},
+          --widget = wibox.container.margin,
+          --margins = {
+            --top = dpi(12),
+            --right = dpi(12),
+            --bottom = dpi(12),
+            --left = 0,
+          --},
+        --},
+        --layout = wibox.layout.fixed.horizontal,
+      --},
+      --bg = "#ff0000",
+      ----forced_height = dpi(340),
+      ----forced_width = dpi(500),
+      --widget = wibox.container.background,
+    --},
+    --border_color = "#b8bb26",
+    --border_width = 2,
+    --placement = awful.placement.centered,
+    --shape = gears.shape.rectangle,
+    --visible = false,
+    --ontop = true,
+    --hide_on_right_click = true,
+    --layout = wibox.layout.grid,
+  --}
+  --note.visible = true
 end)

@@ -22,7 +22,7 @@ local function convert_bindings(bindings)
   return key_bindings
 end
 
---{modifier(s) table, key string,             function function,                description string,                      group string}
+--{modifier(s) table, key string,              function function,                description string,                      group string}
 -- stylua: ignore start
 local global_keys = {
   {{},                "F11",                   launcher_fns.spawn_dropdown_term, "dropdown terminal",                     "launcher"},
@@ -35,8 +35,10 @@ local global_keys = {
   {{},                "XF86AudioRaiseVolume",  media_fns.raise_volume,           "increase volume",                       "media"   },
   {{},                "XF86MonBrightnessDown", media_fns.decrease_brightness,    "decrease brightness",                   "media"   },
   {{},                "XF86MonBrightnessUp",   media_fns.increase_brightness,    "increase brightness",                   "media"   },
+  --modkey
   {{ modkey },        "a",                     layout_fns.reset_layout,          "reset layout",                          "layout"  },
-  {{ modkey },        "d",                     launcher_fns.noscope,      "bling launcher",                        "layout"  },
+  {{ modkey },        "c",                     awful.menu.clients,             "test menu",                        "layout"  },
+  {{ modkey },        "d",                     launcher_fns.noscope,             "bling launcher",                        "layout"  },
   {{ modkey },        "f",                     launcher_fns.spawn_filemanager,   "open file browser",                     "launcher"},
   {{ modkey },        "h",                     layout_fns.decrease_width,        "decrease master width factor",          "layout"  },
   {{ modkey },        "j",                     client_fns.focus_next_client,     "focus next client",                     "client"  },
@@ -52,6 +54,7 @@ local global_keys = {
   {{ modkey },        "x",                     launcher_fns.spawn_logout,        "arcolinux logout",                      "launcher"},
   {{ modkey },        "space",                 layout_fns.next_layout,           "select next",                           "layout"  },
   {{ modkey },        "Return",                launcher_fns.spawn_terminal,      "open a terminal",                       "launcher"},
+  --modkey ctrl
   {{ modkey, ctrl },  "f",                     tag_fns.set_floating_layout,      "set floating layout",                   "tag"     },
   {{ modkey, ctrl },  "h",                     layout_fns.increase_columns,      "increase the number of columns",        "layout"  },
   {{ modkey, ctrl },  "j",                     screen_fns.focus_next_screen,     "focus the next screen",                 "screen"  },
@@ -62,6 +65,8 @@ local global_keys = {
   {{ modkey, ctrl },  "r",                     awesome.restart,                  "reload awesome",                        "awesome" },
   {{ modkey, ctrl },  "t",                     tag_fns.set_tile_layout,          "set tile layout",                       "tag"     },
   {{ modkey, ctrl },  "w",                     tag_fns.set_max_layout,           "set max layout",                        "tag"     },
+  --modkey shift
+  {{ modkey, shift }, "c",                     global_fns.switch_config,         "switch config",                         "awesome" },
   {{ modkey, shift }, "d",                     global_fns.showPanel,             "show panel",                            "awesome" },
   {{ modkey, shift }, "h",                     layout_fns.increase_masters,      "increase the number of master clients", "layout"  },
   {{ modkey, shift }, "j",                     client_fns.swap_with_next_client, "swap with next client (index)",         "client"  },
