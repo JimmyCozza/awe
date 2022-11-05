@@ -37,7 +37,7 @@ local global_keys = {
   {{},                "XF86MonBrightnessUp",   media_fns.increase_brightness,    "increase brightness",                   "media"   },
   --modkey
   {{ modkey },        "a",                     layout_fns.reset_layout,          "reset layout",                          "layout"  },
-  {{ modkey },        "c",                     awful.menu.clients,             "test menu",                        "layout"  },
+  {{ modkey },        "c",                     awful.menu.clients,               "test menu",                             "layout"  },
   {{ modkey },        "d",                     launcher_fns.noscope,             "bling launcher",                        "layout"  },
   {{ modkey },        "f",                     launcher_fns.spawn_filemanager,   "open file browser",                     "launcher"},
   {{ modkey },        "h",                     layout_fns.decrease_width,        "decrease master width factor",          "layout"  },

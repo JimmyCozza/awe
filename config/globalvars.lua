@@ -4,7 +4,7 @@ dpi = beautiful.xresources.apply_dpi
 
 -- Default Applications
 local terminal = "wezterm"
-local editor = "emacsclient -c"
+local editor = "emacs"
 local editor_cmd = editor
 local browser = "firefox"
 local filemanager = "thunar"
