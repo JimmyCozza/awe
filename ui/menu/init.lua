@@ -2,7 +2,7 @@ local awful = require "awful"
 local hotkeys_popup = require "awful.hotkeys_popup"
 local beautiful = require "beautiful"
 local naughty = require "naughty"
-local utils = require "utils"
+local gears = require "gears"
 
 local awesomemenu = {
   {
@@ -28,33 +28,35 @@ local appmenu = {
   { "Chat", User_vars.apps.discord }
 }
 
-
 local function switch_configs(config)
   awful.spawn.with_shell("rm ~/.config/awesome && ln -s ~/unix_stuff/awesome_configs/" .. config .. " ~/.config/awesome")
   awesome.restart()
+end
+
+local function list_configs()
+  local configs = {}
+
+  awful.spawn.easy_async("ls /home/jimmy/unix_stuff/awesome_configs", function(stdout)
+    local config_items = stdout:gmatch("[^\r\n]+")
+      for s in config_items do
+        gears.table.merge(configs, {
+          {
+            s,
+            function()
+              switch_configs(s)
+            end,
+          },
+        })
+      end
+  end)
+  return configs
 end
 
 local mymainmenu = awful.menu {
   items = {
     { "AwesomeWM", awesomemenu, beautiful.awesome_icon },
     { "Apps", appmenu },
-    {
-      "Configs",
-      {
-        {
-          "jimmy",
-          function()
-            switch_configs("jimmy")
-          end
-        },
-        {
-          "awesome-from-scratch",
-          function()
-            switch_configs("awesome-from-scratch")
-          end
-        },
-      }
-    },
+    { "Configs", list_configs() }
   },
 }
 
