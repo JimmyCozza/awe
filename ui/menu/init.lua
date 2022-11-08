@@ -4,30 +4,6 @@ local beautiful = require "beautiful"
 local naughty = require "naughty"
 local gears = require "gears"
 
-local awesomemenu = {
-  {
-    "Key Binds",
-    function()
-      hotkeys_popup.show_help(nil, awful.screen.focused())
-    end,
-  },
-  { "Manual", User_vars.apps.terminal .. " start man awesome" },
-  { "Edit Config", User_vars.apps.editor .. " " .. awesome.conffile },
-  { "Restart", awesome.restart },
-  {
-    "Quit",
-    function()
-      awesome.quit()
-    end,
-  },
-}
-
-local appmenu = {
-  { "Terminal", User_vars.apps.terminal },
-  { "Editor", User_vars.apps.editor },
-  { "Chat", User_vars.apps.discord }
-}
-
 local function switch_configs(config)
   awful.spawn.with_shell("rm ~/.config/awesome && ln -s ~/unix_stuff/awesome_configs/" .. config .. " ~/.config/awesome")
   awesome.restart()
@@ -52,11 +28,35 @@ local function list_configs()
   return configs
 end
 
+local awesomemenu = {
+  {
+    "Key Binds",
+    function()
+      hotkeys_popup.show_help(nil, awful.screen.focused())
+    end,
+  },
+  { "Manual", User_vars.apps.terminal .. " start man awesome" },
+  { "Edit Config", User_vars.apps.editor .. " " .. awesome.conffile },
+  { "Configs", list_configs() },
+  { "Restart", awesome.restart },
+  {
+    "Quit",
+    function()
+      awesome.quit()
+    end,
+  },
+}
+
+local appmenu = {
+  { "Terminal", User_vars.apps.terminal },
+  { "Editor", User_vars.apps.editor },
+  { "Chat", User_vars.apps.discord }
+}
+
 local mymainmenu = awful.menu {
   items = {
     { "AwesomeWM", awesomemenu, beautiful.awesome_icon },
     { "Apps", appmenu },
-    { "Configs", list_configs() }
   },
 }
 
